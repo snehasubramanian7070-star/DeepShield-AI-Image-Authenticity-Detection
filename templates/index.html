@@ -1,0 +1,70 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <title>DeepShield</title>
+
+    <style>
+        body{
+            font-family: Arial;
+            background:#f4f7fa;
+            text-align:center;
+            padding-top:50px;
+        }
+
+        .container{
+            width:600px;
+            margin:auto;
+            background:white;
+            padding:30px;
+            border-radius:12px;
+            box-shadow:0 0 15px rgba(0,0,0,0.1);
+        }
+
+        img{
+            margin-top:20px;
+            max-width:400px;
+            border-radius:10px;
+        }
+
+        button{
+            background:#1f4e79;
+            color:white;
+            border:none;
+            padding:10px 20px;
+            border-radius:6px;
+        }
+    </style>
+</head>
+
+<body>
+
+<div class="container">
+
+<h1>DeepShield</h1>
+
+<h3>AI Image Authenticity Detection System</h3>
+
+<form method="POST" enctype="multipart/form-data">
+
+<input type="file" name="image" required>
+
+<br><br>
+
+<button type="submit">Analyze</button>
+
+</form>
+
+{% if image_name %}
+
+<h3>Uploaded Image</h3>
+
+<img src="{{ url_for('static', filename='placeholder.png') }}">
+
+<p>{{ image_name }}</p>
+
+{% endif %}
+
+</div>
+
+</body>
+</html>
