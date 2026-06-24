@@ -12,7 +12,7 @@
         }
 
         .container{
-            width:600px;
+            width:700px;
             margin:auto;
             background:white;
             padding:30px;
@@ -32,6 +32,24 @@
             border:none;
             padding:10px 20px;
             border-radius:6px;
+            cursor:pointer;
+        }
+
+        .result{
+            margin-top:20px;
+            padding:15px;
+            background:#eef5ff;
+            border-radius:8px;
+        }
+
+        .real{
+            color:green;
+            font-weight:bold;
+        }
+
+        .fake{
+            color:red;
+            font-weight:bold;
         }
     </style>
 </head>
@@ -54,13 +72,30 @@
 
 </form>
 
-{% if image_name %}
+{% if filename %}
 
 <h3>Uploaded Image</h3>
 
 <img src="{{ url_for('static', filename='placeholder.png') }}">
 
-<p>{{ image_name }}</p>
+<p>{{ filename }}</p>
+
+{% endif %}
+
+{% if prediction %}
+
+<div class="result">
+
+<h2>
+Prediction:
+<span class="{% if prediction == 'REAL' %}real{% else %}fake{% endif %}">
+{{ prediction }}
+</span>
+</h2>
+
+<h3>Confidence: {{ confidence }}%</h3>
+
+</div>
 
 {% endif %}
 
